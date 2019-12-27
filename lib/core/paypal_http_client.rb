@@ -25,6 +25,8 @@ module PayPal
       "PayPalSDK/rest-sdk-ruby #{VERSION} (#{library_details})"
     end
 
+    private
+
     def _sign_request(request)
       return if _has_auth_header(request) || _is_auth_request(request)
 
