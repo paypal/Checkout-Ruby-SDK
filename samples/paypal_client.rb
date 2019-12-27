@@ -22,7 +22,11 @@ module PayPalClient
     # Utility to convert Openstruct Object to JSON hash.
     def openstruct_to_hash(object, hash = {})
       object.each_pair do |key, value|
-        hash[key] = value.is_a?(OpenStruct) ? openstruct_to_hash(value) : value.is_a?(Array) ? array_to_hash(value) : value
+        hash[key] = if value.is_a?(OpenStruct)
+                      openstruct_to_hash(value)
+                    else
+                      value.is_a?(Array) ? array_to_hash(value) : value
+                    end
       end
       hash
     end
@@ -30,7 +34,11 @@ module PayPalClient
     # Utility to convert Array of OpenStruct into Hash.
     def array_to_hash(array, hash = [])
       array.each do |item|
-        x = item.is_a?(OpenStruct) ? openstruct_to_hash(item) : item.is_a?(Array) ? array_to_hash(item) : item
+        x = if item.is_a?(OpenStruct)
+              openstruct_to_hash(item)
+            else
+              item.is_a?(Array) ? array_to_hash(item) : item
+            end
         hash << x
       end
       hash
