@@ -32,16 +32,14 @@ module PayPalClient
     end
 
     # Utility to convert Array of OpenStruct into Hash.
-    def array_to_hash(array, hash = [])
-      array.each do |item|
-        x = if item.is_a?(OpenStruct)
-              openstruct_to_hash(item)
-            else
-              item.is_a?(Array) ? array_to_hash(item) : item
-            end
-        hash << x
+    def array_to_hash(array)
+      array.each_with_object({}) do |item, acc|
+        acc << if item.is_a?(OpenStruct)
+                 openstruct_to_hash(item)
+               else
+                 item.is_a?(Array) ? array_to_hash(item) : item
+               end
       end
-      hash
     end
   end
 end
