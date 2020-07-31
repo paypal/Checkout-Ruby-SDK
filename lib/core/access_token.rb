@@ -10,11 +10,11 @@ module PayPal
     end
 
     def isExpired
-      return Time.now > @date_created + @expires_in
+      Time.now > @date_created + @expires_in
     end
 
     def authorizationString
-      return "#{@token_type} #{@access_token}"
+      "#{@token_type} #{@access_token}"
     end
   end
 end
