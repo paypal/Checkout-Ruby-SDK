@@ -106,7 +106,7 @@ begin
 rescue PayPalHttp::HttpError => ioe
     # Something went wrong server-side
     puts ioe.status_code
-    puts ioe.headers["debug_id"]
+    puts ioe.headers["paypal-debug-id"]
 end
 ```
 
