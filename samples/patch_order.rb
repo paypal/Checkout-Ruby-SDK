@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './paypal_client'
 require_relative './capture_intent_examples/create_order'
 require_relative './get_order'

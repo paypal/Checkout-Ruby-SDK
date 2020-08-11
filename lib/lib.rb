@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './core/access_token'
 require_relative './core/paypal_environment'
 require_relative './core/paypal_http_client'

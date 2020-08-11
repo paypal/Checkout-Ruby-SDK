@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../test_harness'
 require_relative '../../lib/lib'
 require 'json'

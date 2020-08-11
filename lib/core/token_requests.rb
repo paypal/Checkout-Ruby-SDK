@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PayPal
   class AccessTokenRequest
     attr_accessor :path, :body, :headers, :verb

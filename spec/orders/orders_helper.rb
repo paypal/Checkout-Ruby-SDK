@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../test_harness'
 
 include PayPalCheckoutSdk::Orders

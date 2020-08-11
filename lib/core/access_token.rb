@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PayPal
   class AccessToken
     attr_accessor :access_token, :token_type, :expires_in, :date_created

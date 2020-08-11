@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This class was generated on Mon, 27 Aug 2018 13:52:18 PDT by version 0.1.0-dev+904328-dirty of Braintree SDK Generator
 # refunds_get_request.rb
 # @version 0.1.0-dev+904328-dirty

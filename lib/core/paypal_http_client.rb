@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'paypalhttp'
 require 'openssl'
 require_relative './version'

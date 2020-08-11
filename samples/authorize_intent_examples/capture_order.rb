@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../paypal_client'
 include PayPalCheckoutSdk::Payments
 module Samples
