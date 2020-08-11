@@ -1,0 +1,27 @@
+# Layout Cop configurations
+
+Layout/ExtraSpacing:
+  Enabled: true
+  AllowForAlignment: true
+
+# Line length is an ongoing debate. Working towards 80 / 100 seems like a good
+# idea overall but there is no priority on this.
+Layout/LineLength:
+  Max: 182
+
+# ensures method call operators (e.g. foo.bar or foo&.bar) are properly connected w/o space
+# https://docs.rubocop.org/en/latest/cops_layout/#layoutspacearoundmethodcalloperator
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+# spacing options
+Layout/EmptyLinesAroundModuleBody:
+ Enabled: true
+ EnforcedStyle: empty_lines_except_namespace
+
+Layout/EmptyLinesAroundClassBody:
+ Enabled: true
+ EnforcedStyle: empty_lines_except_namespace
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true

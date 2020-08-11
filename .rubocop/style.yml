@@ -1,0 +1,98 @@
+# Always using single quotes in the right place seems like a neat idea
+# but it is fairly restrictive without much benefit. This may change with
+# memory management in ruby 3, but for now we can be more relaxed.
+Style/StringLiterals:
+  Enabled: true
+
+# Prefer class Name < Parent over the more verbose class Parent; class Name
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+# Our documentation needs work
+Style/Documentation:
+  Enabled: false
+
+# Prefer x > 0 vs x.positive?
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+# Raise vs Fail seems to be an on-going debate with no significant impact.
+# Fixing our style to raise.
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+# Prefer two line empty methods
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# disable warning about emoji in comments.
+Style/AsciiComments:
+  Enabled: false
+
+# preferred methods to iterate hashes - https://rubystyle.guide/#hash-each
+Style/HashEachMethods:
+  Enabled: true
+
+# each_with_object and injects are replaced with transforms...
+Style/HashTransformKeys:
+  Enabled: true
+
+# transforms were enabled in ruby 2.5... https://rubystyle.guide/#hash-transform-methods
+Style/HashTransformValues:
+  Enabled: true
+
+# ensures exponential numbers are written correctly. we don't use them.
+# https://docs.rubocop.org/en/latest/cops_style/#styleexponentialnotation
+Style/ExponentialNotation:
+  Enabled: false
+
+# I like this as it makes it clear how the block is formed, especially
+# when doing third party / api / web requests - where i expect failure
+# more often than in typical code.
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantbegin
+Style/RedundantBegin:
+  Enabled: false
+
+## 0.85+ https://docs.rubocop.org/rubocop/cops_style.html
+
+Style/AccessorGrouping:
+  Enabled: true
+Style/ArrayCoercion:
+  Enabled: true
+Style/BisectedAttrAccessor:
+  Enabled: true
+Style/CaseLikeIf:
+  Enabled: true
+Style/HashAsLastArrayItem:
+  Enabled: true
+Style/HashLikeCase:
+  Enabled: true
+Style/RedundantAssignment:
+  Enabled: true
+Style/RedundantFetchBlock:
+  Enabled: true
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+Style/RedundantRegexpEscape:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true
+
+
+## 0.89 ... needs more validation
+Style/ExplicitBlockArgument:
+  Enabled: true
+
+Style/GlobalStdStream:
+  Enabled: true
+
+Style/OptionalBooleanParameter:
+  Enabled: true
+
+Style/SingleArgumentDig:
+  Enabled: true
+
+Style/StringConcatenation:
+  Enabled: true
