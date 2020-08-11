@@ -32,7 +32,7 @@ module PayPal
     end
 
     def _sign_request(request)
-      return if _has_auth_header(request) || _is_auth_request(request)
+      return if _has_auth_header(request) && _is_auth_request(request)
 
       if !@access_token || @access_token.isExpired
         accessTokenRequest = PayPal::AccessTokenRequest.new(@environment, @refresh_token)
