@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'paypalhttp'
 require './lib/paypal_checkout_sdk'
 
