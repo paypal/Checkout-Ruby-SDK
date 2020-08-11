@@ -1,6 +1,6 @@
-require 'paypalhttp'
-require 'openssl'
-require_relative './version'
+require "paypalhttp"
+require "openssl"
+require_relative "./version"
 
 module PayPal
   class PayPalHttpClient < PayPalHttp::HttpClient
@@ -25,15 +25,17 @@ module PayPal
       "PayPalSDK/rest-sdk-ruby #{VERSION} (#{library_details})"
     end
 
+    private
+
     def _sign_request(request)
-      if (!_has_auth_header(request) && !_is_auth_request(request))
-        if (!@access_token || @access_token.isExpired)
-          accessTokenRequest = PayPal::AccessTokenRequest.new(@environment, @refresh_token)
-          tokenResponse = execute(accessTokenRequest)
-          @access_token = PayPal::AccessToken.new(tokenResponse.result)
-        end
-        request.headers["Authorization"] = @access_token.authorizationString()
+      return if _has_auth_header(request) || _is_auth_request(request)
+
+      if !@access_token || @access_token.isExpired
+        accessTokenRequest = PayPal::AccessTokenRequest.new(@environment, @refresh_token)
+        tokenResponse = execute(accessTokenRequest)
+        @access_token = PayPal::AccessToken.new(tokenResponse.result)
       end
+      request.headers["Authorization"] = @access_token.authorizationString
     end
 
     def _add_headers(request)
@@ -45,8 +47,8 @@ module PayPal
     end
 
     def _is_auth_request(request)
-      request.path == '/v1/oauth2/token' ||
-        request.path == '/v1/identity/openidconnect/tokenservice'
+      request.path == "/v1/oauth2/token" ||
+        request.path == "/v1/identity/openidconnect/tokenservice"
     end
 
     def _has_auth_header(request)
