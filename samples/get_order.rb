@@ -8,6 +8,7 @@ require 'ostruct'
 include PayPalCheckoutSdk::Orders
 module Samples
   class GetOrder
+
     # This function can be used to retrieve an order by passing order id as argument
     def get_order(order_id)
       request = OrdersGetRequest.new(order_id)
@@ -32,6 +33,7 @@ module Samples
         puts " Response: #{e.result}"
       end
     end
+
   end
 end
 

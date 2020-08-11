@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Authorizes payment for an order. The response shows details of authorizations. You can make this call only if you specified `intent=AUTHORIZE` in the create order call.
     #
     class OrdersAuthorizeRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(order_id)
@@ -41,6 +42,7 @@ module PayPalCheckoutSdk
       def request_body(orderActionRequest)
         @body = orderActionRequest
       end
+
     end
   end
 end

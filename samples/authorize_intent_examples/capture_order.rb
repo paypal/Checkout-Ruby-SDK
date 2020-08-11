@@ -5,6 +5,7 @@ include PayPalCheckoutSdk::Payments
 module Samples
   module AuthorizeIntentExamples
     class CaptureOrder
+
       # This function can be used to perform capture on an authorization.
       # An valid authorization id dhould be passed as an argument.
       def capture_order(authorization_id, debug = false)
@@ -34,6 +35,7 @@ module Samples
           puts " Response: #{e.result}"
         end
       end
+
     end
   end
 end

@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Creates an order. Supports only orders with one purchase unit.
     #
     class OrdersCreateRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize
@@ -35,6 +36,7 @@ module PayPalCheckoutSdk
       def request_body(order)
         @body = order
       end
+
     end
   end
 end

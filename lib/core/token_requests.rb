@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module PayPal
+
   class AccessTokenRequest
+
     attr_accessor :path, :body, :headers, :verb
 
     def initialize(environment, refreshToken = nil)
@@ -21,9 +23,11 @@ module PayPal
       }
       @verb = 'POST'
     end
+
   end
 
   class RefreshTokenRequest
+
     attr_accessor :path, :body, :headers, :verb
 
     def initialize(environment, authorization_code)
@@ -38,5 +42,7 @@ module PayPal
       }
       @verb = 'POST'
     end
+
   end
+
 end

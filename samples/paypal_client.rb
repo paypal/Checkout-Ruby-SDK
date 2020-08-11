@@ -3,7 +3,9 @@
 require './lib/paypal-checkout-sdk'
 
 module PayPalClient
+
   class << self
+
     # Setting up and Returns PayPal SDK environment with PayPal Access credentials.
     # For demo purpose, we are using SandboxEnvironment. In production this will be
     # LiveEnvironment.
@@ -43,5 +45,7 @@ module PayPalClient
                end
       end
     end
+
   end
+
 end

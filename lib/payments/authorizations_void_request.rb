@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Voids, or cancels, an authorized payment, by ID. You cannot void an authorized payment that has been fully captured.
     #
     class AuthorizationsVoidRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(authorization_id)
@@ -25,6 +26,7 @@ module PayPalCheckoutSdk
         @path = @path.gsub('{authorization_id}', CGI.escape(authorization_id.to_s))
         @headers['Content-Type'] = 'application/json'
       end
+
     end
   end
 end

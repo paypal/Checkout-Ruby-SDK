@@ -5,6 +5,7 @@ include PayPalCheckoutSdk::Orders
 module Samples
   module AuthorizeIntentExamples
     class AuthorizeOrder
+
       # This function can be used to authorize an approved order.
       def authorize_order(order_id, debug = false)
         request = OrdersAuthorizeRequest.new(order_id)
@@ -42,6 +43,7 @@ module Samples
           puts " Response: #{e.result}"
         end
       end
+
     end
   end
 end

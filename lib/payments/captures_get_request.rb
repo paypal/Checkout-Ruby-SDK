@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Shows details for a captured payment, by ID.
     #
     class CapturesGetRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(capture_id)
@@ -25,6 +26,7 @@ module PayPalCheckoutSdk
         @path = @path.gsub('{capture_id}', CGI.escape(capture_id.to_s))
         @headers['Content-Type'] = 'application/json'
       end
+
     end
   end
 end

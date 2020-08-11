@@ -2,6 +2,7 @@
 
 module PayPal
   class AccessToken
+
     attr_accessor :access_token, :token_type, :expires_in, :date_created
 
     def initialize(options)
@@ -18,5 +19,6 @@ module PayPal
     def authorizationString
       "#{@token_type} #{@access_token}"
     end
+
   end
 end

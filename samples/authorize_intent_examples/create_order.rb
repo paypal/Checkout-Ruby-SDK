@@ -7,6 +7,7 @@ include PayPalCheckoutSdk::Orders
 module Samples
   module AuthorizeIntentExamples
     class CreateOrder
+
       # This is the sample function which can be used to create an order with complete body.
       # The Intent in the request body should be set as "AUTHORIZE" for authorize intent flow.
       def create_order(debug = false)
@@ -181,6 +182,7 @@ module Samples
           puts " Response: #{e.result}"
         end
       end
+
     end
   end
 end

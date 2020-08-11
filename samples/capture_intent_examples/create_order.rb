@@ -6,6 +6,7 @@ include PayPalCheckoutSdk::Orders
 module Samples
   module CaptureIntentExamples
     class CreateOrder
+
       # This is the sample function which can be used to create an order. It uses the
       # sample JSON body to create an new Order.
       # The Intent in the request body should be set as "CAPTURE" for capture intent flow.
@@ -129,6 +130,7 @@ module Samples
           puts " Response: #{e.result}"
         end
       end
+
     end
   end
 end

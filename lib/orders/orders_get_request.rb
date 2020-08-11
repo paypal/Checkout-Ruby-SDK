@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Shows details for an order, by ID.
     #
     class OrdersGetRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(order_id)
@@ -25,6 +26,7 @@ module PayPalCheckoutSdk
         @path = @path.gsub('{order_id}', CGI.escape(order_id.to_s))
         @headers['Content-Type'] = 'application/json'
       end
+
     end
   end
 end

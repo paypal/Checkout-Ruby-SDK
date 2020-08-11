@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Shows details for an authorized payment, by ID.
     #
     class AuthorizationsGetRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(authorization_id)
@@ -25,6 +26,7 @@ module PayPalCheckoutSdk
         @path = @path.gsub('{authorization_id}', CGI.escape(authorization_id.to_s))
         @headers['Content-Type'] = 'application/json'
       end
+
     end
   end
 end

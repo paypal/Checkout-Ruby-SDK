@@ -6,6 +6,7 @@ require_relative './version'
 
 module PayPal
   class PayPalHttpClient < PayPalHttp::HttpClient
+
     attr_accessor :refresh_token
 
     def initialize(environment, refresh_token = nil)
@@ -56,5 +57,6 @@ module PayPal
     def _has_auth_header(request)
       request.headers.key?('Authorization')
     end
+
   end
 end

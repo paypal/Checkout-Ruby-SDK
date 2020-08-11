@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Captures a payment for an order.
     #
     class OrdersCaptureRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(order_id)
@@ -41,6 +42,7 @@ module PayPalCheckoutSdk
       def request_body(orderActionRequest)
         @body = orderActionRequest
       end
+
     end
   end
 end

@@ -5,7 +5,9 @@ require_relative '../test_harness'
 include PayPalCheckoutSdk::Orders
 
 module OrdersHelper
+
   class << self
+
     def create_order
       body = {
         intent: 'CAPTURE',
@@ -31,5 +33,7 @@ module OrdersHelper
     def get_order(id)
       TestHarness.exec(OrdersGetRequest.new(id))
     end
+
   end
+
 end

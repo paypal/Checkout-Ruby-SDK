@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Captures an authorized payment, by ID.
     #
     class AuthorizationsCaptureRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(authorization_id)
@@ -37,6 +38,7 @@ module PayPalCheckoutSdk
       def request_body(capture)
         @body = capture
       end
+
     end
   end
 end

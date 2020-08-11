@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Shows details for a refund, by ID.
     #
     class RefundsGetRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(refund_id)
@@ -25,6 +26,7 @@ module PayPalCheckoutSdk
         @path = @path.gsub('{refund_id}', CGI.escape(refund_id.to_s))
         @headers['Content-Type'] = 'application/json'
       end
+
     end
   end
 end

@@ -5,6 +5,7 @@ include PayPalCheckoutSdk::Orders
 module Samples
   module CaptureIntentExamples
     class CaptureOrder
+
       # This is the sample function performing payment capture on the order.
       # Approved Order id should be passed as an argument to this function
       def capture_order(order_id, debug = false)
@@ -41,6 +42,7 @@ module Samples
           puts " Response: #{e.result}"
         end
       end
+
     end
   end
 end

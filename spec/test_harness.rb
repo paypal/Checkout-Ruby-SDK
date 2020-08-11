@@ -4,7 +4,9 @@ require 'paypalhttp'
 require './lib/paypal-checkout-sdk'
 
 module TestHarness
+
   class << self
+
     def environment
       client_id = ENV['PAYPAL_CLIENT_ID'] || '<<PAYPAL-CLIENT-ID>>'
       client_secret = ENV['PAYPAL_CLIENT_SECRET'] || '<<PAYPAL-CLIENT-SECRET>>'
@@ -21,5 +23,7 @@ module TestHarness
 
       client.execute(req)
     end
+
   end
+
 end

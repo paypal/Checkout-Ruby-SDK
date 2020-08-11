@@ -4,6 +4,7 @@ require_relative './paypal_client' # PayPal SDK dependency
 include PayPalCheckoutSdk::Payments
 module Samples
   class RefundCapture
+
     # This is the sample function performing capture refund.
     # Valid capture id should be passed as an argument to this function
     def refund_capture(capture_id, debug = false)
@@ -38,6 +39,7 @@ module Samples
       end
       response
     end
+
   end
 end
 # This is the driver function which invokes the refund capture function.

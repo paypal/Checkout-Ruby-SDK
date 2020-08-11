@@ -8,6 +8,7 @@ include PayPalCheckoutSdk::Orders
 
 module Samples
   class PatchOrder
+
     # Below function can be used to patch and order.
     # Patch is supported on only specific set of fields.
     # Please refer API docs for more info.
@@ -27,6 +28,7 @@ module Samples
       response = PayPalClient.client.execute(request)
       response
     end
+
   end
 end
 

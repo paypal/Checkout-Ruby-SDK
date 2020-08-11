@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Validates a payment method and checks it for contingencies.
     #
     class OrdersValidateRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(order_id)
@@ -33,6 +34,7 @@ module PayPalCheckoutSdk
       def request_body(orderActionRequest)
         @body = orderActionRequest
       end
+
     end
   end
 end

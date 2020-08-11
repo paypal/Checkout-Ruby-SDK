@@ -14,6 +14,7 @@ module PayPalCheckoutSdk
     # Refunds a captured payment, by ID. For a full refund, include an empty payload in the JSON request body. For a partial refund, include an <code>amount</code> object in the JSON request body.
     #
     class CapturesRefundRequest
+
       attr_accessor :path, :body, :headers, :verb
 
       def initialize(capture_id)
@@ -37,6 +38,7 @@ module PayPalCheckoutSdk
       def request_body(refundRequest)
         @body = refundRequest
       end
+
     end
   end
 end
