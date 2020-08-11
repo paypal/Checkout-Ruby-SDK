@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/lib'
+require_relative '../lib/paypal_checkout_sdk'
 require 'pp'
 require 'webmock/rspec'
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../test_harness'
-require_relative '../../lib/lib'
+require_relative '../../lib/paypal_checkout_sdk'
 require 'json'
 
 include PayPalCheckoutSdk::Payments

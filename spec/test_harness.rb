@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'paypalhttp'
-require './lib/paypal-checkout-sdk'
+require './lib/paypal_checkout_sdk'
 
 module TestHarness
 
