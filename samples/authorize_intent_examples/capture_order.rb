@@ -42,6 +42,4 @@ end
 
 # This is the driver function which invokes the capture_order function with valid authorization id
 # Authorization Id should be replaced with an valid authorization id.
-if $PROGRAM_NAME == __FILE__
-  Samples::AuthorizeIntentExamples::CaptureOrder.new.capture_order('4KH16819Y83216409', true)
-end
+Samples::AuthorizeIntentExamples::CaptureOrder.new.capture_order('4KH16819Y83216409', true) if $PROGRAM_NAME == __FILE__

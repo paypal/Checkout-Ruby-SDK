@@ -44,6 +44,4 @@ module Samples
 end
 # This is the driver function which invokes the refund capture function.
 # Capture Id value should be replaced with the capture id.
-if $PROGRAM_NAME == __FILE__
-  Samples::RefundCapture.new.refund_capture('2WB02631FY659550C', true)
-end
+Samples::RefundCapture.new.refund_capture('2WB02631FY659550C', true) if $PROGRAM_NAME == __FILE__

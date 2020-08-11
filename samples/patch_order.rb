@@ -25,8 +25,7 @@ module Samples
               }]
       request = OrdersPatchRequest.new(order_id)
       request.request_body(body)
-      response = PayPalClient.client.execute(request)
-      response
+      PayPalClient.client.execute(request)
     end
 
   end

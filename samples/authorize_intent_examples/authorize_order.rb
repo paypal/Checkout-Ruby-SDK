@@ -50,6 +50,4 @@ end
 
 # This is the driver function which invokes the authorize_order function with approved order id
 # Order Id should be replaced with an valid approved order id.
-if $PROGRAM_NAME == __FILE__
-  Samples::AuthorizeIntentExamples::AuthorizeOrder.new.authorize_order('0CT41921GV4167455', true)
-end
+Samples::AuthorizeIntentExamples::AuthorizeOrder.new.authorize_order('0CT41921GV4167455', true) if $PROGRAM_NAME == __FILE__

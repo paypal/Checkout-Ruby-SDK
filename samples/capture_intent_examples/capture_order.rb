@@ -48,6 +48,4 @@ module Samples
 end
 # This is the driver function which invokes the capture order function.
 # Order Id value should be replaced with the approved order id.
-if $PROGRAM_NAME == __FILE__
-  Samples::CaptureIntentExamples::CaptureOrder.new.capture_order('4BH32103UX0864942', true)
-end
+Samples::CaptureIntentExamples::CaptureOrder.new.capture_order('4BH32103UX0864942', true) if $PROGRAM_NAME == __FILE__

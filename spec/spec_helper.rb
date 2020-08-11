@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/lib.rb'
+require_relative '../lib/lib'
 require 'pp'
 require 'webmock/rspec'
 

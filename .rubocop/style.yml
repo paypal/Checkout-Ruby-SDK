@@ -96,3 +96,9 @@ Style/SingleArgumentDig:
 
 Style/StringConcatenation:
   Enabled: true
+
+# samples and specs do this incorrectly :(
+Style/MixinUsage:
+  Exclude:
+    - spec/**/*
+    - samples/**/*
