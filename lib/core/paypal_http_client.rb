@@ -18,17 +18,18 @@ module PayPal
     end
 
     def user_agent
-      library_details ||= "paypal-checkout-sdk #{VERSION}; ruby #{RUBY_VERSION}p#{RUBY_PATCHLEVEL}-#{RUBY_PLATFORM}"
-      begin
-        library_details << ";#{OpenSSL::OPENSSL_LIBRARY_VERSION}"
-      rescue NameError
-        library_details << ";OpenSSL #{OpenSSL::OPENSSL_VERSION}"
-      end
-
-      "PayPalSDK/rest-sdk-ruby #{VERSION} (#{library_details})"
+      @library_details ||= generate_ua_string
     end
 
     private
+
+    def generate_ua_string
+      parts = ["paypal-checkout-sdk #{VERSION}", "ruby #{RUBY_VERSION}p#{RUBY_PATCHLEVEL}-#{RUBY_PLATFORM}"]
+
+      parts << (OpenSSL.const_defined?('OPENSSL_LIBRARY_VERSION') ? OpenSSL::OPENSSL_LIBRARY_VERSION : "OpenSSL #{OpenSSL::OPENSSL_VERSION}" )
+
+      "PayPalSDK/rest-sdk-ruby #{VERSION} (#{parts.join('; ')})"
+    end
 
     def _sign_request(request)
       return if _has_auth_header(request) || _is_auth_request(request)
