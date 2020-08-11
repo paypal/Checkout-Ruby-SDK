@@ -20,7 +20,7 @@ GEM
     paypalhttp (1.0.0)
     public_suffix (4.0.5)
     rainbow (3.0.0)
-    rake (10.5.0)
+    rake (13.0.1)
     regexp_parser (1.7.1)
     rexml (3.2.4)
     rspec (3.9.0)
@@ -64,8 +64,8 @@ PLATFORMS
 
 DEPENDENCIES
   paypal-checkout-sdk!
-  rake (~> 10.0)
-  rspec (~> 3.0)
+  rake
+  rspec
   rubocop
   rubocop-performance
   rubocop-thread_safety
