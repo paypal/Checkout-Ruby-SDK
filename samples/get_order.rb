@@ -1,7 +1,7 @@
-require_relative "./paypal_client"
-require_relative "./authorize_intent_examples/create_order"
-require "json"
-require "ostruct"
+require_relative './paypal_client'
+require_relative './authorize_intent_examples/create_order'
+require 'json'
+require 'ostruct'
 
 include PayPalCheckoutSdk::Orders
 module Samples
@@ -15,7 +15,7 @@ module Samples
         puts "Status: #{response.result.status}"
         puts "Order ID: #{response.result.id}"
         puts "Intent: #{response.result.intent}"
-        puts "Links:"
+        puts 'Links:'
         response.result.links.each do |link|
           # this could also be called as link.rel or link.href but as method is a reserved keyword for ruby avoid calling link.method
           puts "\t#{link['rel']}: #{link['href']}\tCall Type: #{link['method']}"

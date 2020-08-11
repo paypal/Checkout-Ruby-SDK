@@ -1,6 +1,6 @@
-require "paypalhttp"
-require "openssl"
-require_relative "./version"
+require 'paypalhttp'
+require 'openssl'
+require_relative './version'
 
 module PayPal
   class PayPalHttpClient < PayPalHttp::HttpClient
@@ -35,24 +35,24 @@ module PayPal
         tokenResponse = execute(accessTokenRequest)
         @access_token = PayPal::AccessToken.new(tokenResponse.result)
       end
-      request.headers["Authorization"] = @access_token.authorizationString
+      request.headers['Authorization'] = @access_token.authorizationString
     end
 
     def _add_headers(request)
-      request.headers["Accept-Encoding"] = "gzip"
-      request.headers["sdk_name"] = "Checkout SDK"
-      request.headers["sdk_version"] = VERSION
-      request.headers["sdk_tech_stack"] = "Ruby" + RUBY_VERSION
-      request.headers["api_integration_type"] = "PAYPALSDK"
+      request.headers['Accept-Encoding'] = 'gzip'
+      request.headers['sdk_name'] = 'Checkout SDK'
+      request.headers['sdk_version'] = VERSION
+      request.headers['sdk_tech_stack'] = 'Ruby' + RUBY_VERSION
+      request.headers['api_integration_type'] = 'PAYPALSDK'
     end
 
     def _is_auth_request(request)
-      request.path == "/v1/oauth2/token" ||
-        request.path == "/v1/identity/openidconnect/tokenservice"
+      request.path == '/v1/oauth2/token' ||
+        request.path == '/v1/identity/openidconnect/tokenservice'
     end
 
     def _has_auth_header(request)
-      request.headers.key?("Authorization")
+      request.headers.key?('Authorization')
     end
   end
 end

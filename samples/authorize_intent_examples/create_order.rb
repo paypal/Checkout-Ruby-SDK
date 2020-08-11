@@ -1,5 +1,5 @@
-require_relative "../paypal_client"
-require "json"
+require_relative '../paypal_client'
+require 'json'
 include PayPalCheckoutSdk::Orders
 
 module Samples
@@ -9,96 +9,96 @@ module Samples
       # The Intent in the request body should be set as "AUTHORIZE" for authorize intent flow.
       def create_order(debug = false)
         body = {
-          intent: "AUTHORIZE",
+          intent: 'AUTHORIZE',
           application_context: {
-            return_url: "https://www.example.com",
-            cancel_url: "https://www.example.com",
-            brand_name: "EXAMPLE INC",
-            landing_page: "BILLING",
-            shipping_preference: "SET_PROVIDED_ADDRESS",
-            user_action: "CONTINUE"
+            return_url: 'https://www.example.com',
+            cancel_url: 'https://www.example.com',
+            brand_name: 'EXAMPLE INC',
+            landing_page: 'BILLING',
+            shipping_preference: 'SET_PROVIDED_ADDRESS',
+            user_action: 'CONTINUE'
           },
           purchase_units: [
             {
-              reference_id: "PUHF",
-              description: "Sporting Goods",
+              reference_id: 'PUHF',
+              description: 'Sporting Goods',
 
-              custom_id: "CUST-HighFashions",
-              soft_descriptor: "HighFashions",
+              custom_id: 'CUST-HighFashions',
+              soft_descriptor: 'HighFashions',
               amount: {
-                currency_code: "USD",
-                value: "220.00",
+                currency_code: 'USD',
+                value: '220.00',
                 breakdown: {
                   item_total: {
-                    currency_code: "USD",
-                    value: "180.00"
+                    currency_code: 'USD',
+                    value: '180.00'
                   },
                   shipping: {
-                    currency_code: "USD",
-                    value: "20.00"
+                    currency_code: 'USD',
+                    value: '20.00'
                   },
                   handling: {
-                    currency_code: "USD",
-                    value: "10.00"
+                    currency_code: 'USD',
+                    value: '10.00'
                   },
                   tax_total: {
-                    currency_code: "USD",
-                    value: "20.00"
+                    currency_code: 'USD',
+                    value: '20.00'
                   },
                   gift_wrap: {
-                    currency_code: "USD",
-                    value: "10.00"
+                    currency_code: 'USD',
+                    value: '10.00'
                   },
                   shipping_discount: {
-                    currency_code: "USD",
-                    value: "10"
+                    currency_code: 'USD',
+                    value: '10'
                   }
                 }
               },
               items: [
                 {
-                  name: "T-Shirt",
-                  description: "Green XL",
-                  sku: "sku01",
+                  name: 'T-Shirt',
+                  description: 'Green XL',
+                  sku: 'sku01',
                   unit_amount: {
-                    currency_code: "USD",
-                    value: "90.00"
+                    currency_code: 'USD',
+                    value: '90.00'
                   },
                   tax: {
-                    currency_code: "USD",
-                    value: "10.00"
+                    currency_code: 'USD',
+                    value: '10.00'
                   },
-                  quantity: "1",
-                  category: "PHYSICAL_GOODS"
+                  quantity: '1',
+                  category: 'PHYSICAL_GOODS'
                 },
                 {
-                  name: "Shoes",
-                  description: "Running, Size 10.5",
-                  sku: "sku02",
+                  name: 'Shoes',
+                  description: 'Running, Size 10.5',
+                  sku: 'sku02',
                   unit_amount: {
-                    currency_code: "USD",
-                    value: "45.00"
+                    currency_code: 'USD',
+                    value: '45.00'
                   },
                   tax: {
-                    currency_code: "USD",
-                    value: "5.00"
+                    currency_code: 'USD',
+                    value: '5.00'
                   },
-                  quantity: "2",
-                  category: "PHYSICAL_GOODS"
+                  quantity: '2',
+                  category: 'PHYSICAL_GOODS'
                 }
               ],
               shipping: {
-                method: "United States Postal Service",
+                method: 'United States Postal Service',
                 name: {
-                  full_name: "John Doe"
+                  full_name: 'John Doe'
                 },
                 address: {
-                  address_line_1: "123 Townsend St",
-                  address_line_2: "Floor 6",
-                  admin_area_2: "San Francisco",
-                  admin_area_1: "CA",
-                  postal_code: "94107",
-                  country_code: "US"
+                  address_line_1: '123 Townsend St',
+                  address_line_2: 'Floor 6',
+                  admin_area_2: 'San Francisco',
+                  admin_area_1: 'CA',
+                  postal_code: '94107',
+                  country_code: 'US'
                 }
               }
             }
@@ -106,17 +106,17 @@ module Samples
         }
 
         request = OrdersCreateRequest.new
-        request.headers["prefer"] = "return=representation"
+        request.headers['prefer'] = 'return=representation'
         request.request_body(body)
         begin
           response = PayPalClient.client.execute(request)
           if debug
-            puts "Order with the complete required payload"
+            puts 'Order with the complete required payload'
             puts "Status Code: #{response.status_code}"
             puts "Status: #{response.result.status}"
             puts "Order ID: #{response.result.id}"
             puts "Intent: #{response.result.intent}"
-            puts "Links:"
+            puts 'Links:'
             response.result.links.each do |link|
               # this could also be called as link.rel or link.href but as method is a reserved keyword for ruby avoid calling link.method
               puts "\t#{link['rel']}: #{link['href']}\tCall Type: #{link['method']}"
@@ -137,33 +137,33 @@ module Samples
       # The Intent in the request body should be set as "AUTHORIZE" for authorize intent flow.
       def create_order_with_minimum_body(debug = false)
         body = {
-          intent: "AUTHORIZE",
+          intent: 'AUTHORIZE',
           application_context: {
-            return_url: "https://www.example.com",
-            cancel_url: "https://www.example.com"
+            return_url: 'https://www.example.com',
+            cancel_url: 'https://www.example.com'
           },
           purchase_units: [
             {
               amount: {
-                currency_code: "USD",
-                value: "220.00"
+                currency_code: 'USD',
+                value: '220.00'
               }
             }
           ]
         }
 
         request = OrdersCreateRequest.new
-        request.headers["prefer"] = "return=representation"
+        request.headers['prefer'] = 'return=representation'
         request.request_body(body)
         begin
           response = PayPalClient.client.execute(request)
           if debug
-            puts "Order with the minimum required payload"
+            puts 'Order with the minimum required payload'
             puts "Status Code: #{response.status_code}"
             puts "Status: #{response.result.status}"
             puts "Order ID: #{response.result.id}"
             puts "Intent: #{response.result.intent}"
-            puts "Links:"
+            puts 'Links:'
             response.result.links.each do |link|
               # this could also be called as link.rel or link.href but as method is a reserved keyword for ruby avoid calling link.method
               puts "\t#{link['rel']}: #{link['href']}\tCall Type: #{link['method']}"

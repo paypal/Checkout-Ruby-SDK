@@ -1,11 +1,11 @@
-require "paypalhttp"
-require "base64"
+require 'paypalhttp'
+require 'base64'
 
 module PayPal
-  SANDBOXAPI = "https://api.sandbox.paypal.com".freeze
-  LIVEAPI = "https://api.paypal.com".freeze
-  SANDBOXWEB = "https://sandbox.paypal.com".freeze
-  LIVEWEB = "https://paypal.com".freeze
+  SANDBOXAPI = 'https://api.sandbox.paypal.com'.freeze
+  LIVEAPI = 'https://api.paypal.com'.freeze
+  SANDBOXWEB = 'https://sandbox.paypal.com'.freeze
+  LIVEWEB = 'https://paypal.com'.freeze
 
   class PayPalEnvironment < PayPalHttp::Environment
     attr_accessor :client_id, :client_secret, :web_url

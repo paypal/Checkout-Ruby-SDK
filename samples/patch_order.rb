@@ -1,6 +1,6 @@
-require_relative "./paypal_client"
-require_relative "./capture_intent_examples/create_order"
-require_relative "./get_order"
+require_relative './paypal_client'
+require_relative './capture_intent_examples/create_order'
+require_relative './get_order'
 
 include PayPalCheckoutSdk::Orders
 
@@ -11,14 +11,14 @@ module Samples
     # Please refer API docs for more info.
     def patch_order(order_id)
       body = [{
-        op: "replace",
+        op: 'replace',
         path: "/purchase_units/@reference_id=='PUHF'/description",
-        value: "Sporting goods description"
+        value: 'Sporting goods description'
       },
               {
-                op: "replace",
+                op: 'replace',
                 path: "/purchase_units/@reference_id=='PUHF'/custom_id",
-                value: "CUST-ID-HighFashions"
+                value: 'CUST-ID-HighFashions'
               }]
       request = OrdersPatchRequest.new(order_id)
       request.request_body(body)

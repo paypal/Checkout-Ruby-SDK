@@ -1,12 +1,12 @@
-require_relative "../test_harness"
-require_relative "../../lib/lib"
-require "json"
+require_relative '../test_harness'
+require_relative '../../lib/lib'
+require 'json'
 
 include PayPalCheckoutSdk::Orders
 
 describe OrdersCaptureRequest do
-  it "successfully makes a request", skip: "This test is an example, in production, orders require payer approval" do
-    request = OrdersCaptureRequest.new("ORDER-ID")
+  it 'successfully makes a request', skip: 'This test is an example, in production, orders require payer approval' do
+    request = OrdersCaptureRequest.new('ORDER-ID')
 
     resp = TestHarness.client.execute(request)
     expect(resp.status_code).to eq(201)

@@ -1,4 +1,4 @@
-require_relative "./paypal_client" # PayPal SDK dependency
+require_relative './paypal_client' # PayPal SDK dependency
 include PayPalCheckoutSdk::Payments
 module Samples
   class RefundCapture
@@ -6,12 +6,12 @@ module Samples
     # Valid capture id should be passed as an argument to this function
     def refund_capture(capture_id, debug = false)
       request = CapturesRefundRequest.new(capture_id)
-      request.prefer("return=representation")
+      request.prefer('return=representation')
       # below request body can be populated to perform partial refund.
       request.request_body(
         amount: {
-          value: "20.00",
-          currency_code: "USD"
+          value: '20.00',
+          currency_code: 'USD'
         }
       )
       begin
@@ -21,7 +21,7 @@ module Samples
           puts "Status: #{response.result.status}"
           puts "Refund ID: #{response.result.id}"
           puts "Intent: #{response.result.intent}"
-          puts "Links:"
+          puts 'Links:'
           response.result.links.each do |link|
             # this could also be called as link.rel or link.href but as method is a reserved keyword for ruby avoid calling link.method
             puts "\t#{link['rel']}: #{link['href']}\tCall Type: #{link['method']}"
@@ -41,5 +41,5 @@ end
 # This is the driver function which invokes the refund capture function.
 # Capture Id value should be replaced with the capture id.
 if $PROGRAM_NAME == __FILE__
-  Samples::RefundCapture.new.refund_capture("2WB02631FY659550C", true)
+  Samples::RefundCapture.new.refund_capture('2WB02631FY659550C', true)
 end
