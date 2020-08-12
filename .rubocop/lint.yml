@@ -1,0 +1,48 @@
+# cop configuration for Lints should be here
+
+# ensures we're not raising plain Exceptions.
+# https://docs.rubocop.org/en/latest/cops_lint/#lintraiseexception
+Lint/RaiseException:
+  Enabled: true
+
+# ensures we don't abuse the struct interface
+# https://docs.rubocop.org/en/latest/cops_lint/#lintstructnewoverride
+Lint/StructNewOverride:
+  Enabled: true
+
+# 0.84++ changes
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+Lint/DuplicateElsifCondition:
+  Enabled: true
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+# 0.89++ ... needs checking
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+
+Lint/DuplicateRescueException:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  Enabled: true
+
+Lint/FloatComparison:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: true
+
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+
+Lint/SelfAssignment:
+  Enabled: true
+
+Lint/TopLevelReturnWithArgument:
+  Enabled: true
+
+Lint/UnreachableLoop:
+  Enabled: true

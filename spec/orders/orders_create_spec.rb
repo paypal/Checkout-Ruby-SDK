@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 require_relative '../test_harness'
 require_relative './orders_helper'
@@ -8,8 +8,7 @@ include PayPalCheckoutSdk::Orders
 
 describe OrdersCreateRequest do
   it 'successfully makes a request' do
-
-    resp = OrdersHelper::create_order
+    resp = OrdersHelper.create_order
     expect(resp.status_code).to eq(201)
     expect(resp.result).not_to be_nil
     expect(resp.result.intent).to eq('CAPTURE')
@@ -22,12 +21,12 @@ describe OrdersCreateRequest do
     expect(resp.result.links).not_to be_nil
     found_approve = false
 
-    for link in resp.result.links
-        if "approve" === link.rel
-          expect(link["href"]).not_to be_nil
-          expect(link["method"]).to eq("GET")
-          found_approve = true
-        end
+    resp.result.links.each do |link|
+      next unless 'approve' === link.rel
+
+      expect(link['href']).not_to be_nil
+      expect(link['method']).to eq('GET')
+      found_approve = true
     end
 
     expect(found_approve).to be_truthy

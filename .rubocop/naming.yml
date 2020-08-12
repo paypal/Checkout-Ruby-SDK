@@ -1,0 +1,10 @@
+# cop configuration for Naming should be here
+#
+# Configuration parameters: EnforcedStyleForLeadingUnderscores.
+# SupportedStylesForLeadingUnderscores: disallowed, required, optional
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: true
+  PreferredName: e

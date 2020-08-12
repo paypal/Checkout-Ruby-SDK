@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 require_relative '../test_harness'
 require_relative './orders_helper'
@@ -8,32 +8,32 @@ include PayPalCheckoutSdk::Orders
 
 describe OrdersPatchRequest do
   def build_request_body
-    return [
-        {
-            "op": "add",
-            "path": "/purchase_units/@reference_id=='test_ref_id1'/description",
-            "value": "added_description"
-        },
-        {
-            "op": "replace",
-            "path": "/purchase_units/@reference_id=='test_ref_id1'/amount",
-            "value": {
-                "currency_code": "USD",
-                "value": "200.00"
-            }
-
+    [
+      {
+        "op": 'add',
+        "path": "/purchase_units/@reference_id=='test_ref_id1'/description",
+        "value": 'added_description'
+      },
+      {
+        "op": 'replace',
+        "path": "/purchase_units/@reference_id=='test_ref_id1'/amount",
+        "value": {
+          "currency_code": 'USD',
+          "value": '200.00'
         }
+
+      }
     ]
   end
 
   it 'successfully makes a request' do
-    create_resp = OrdersHelper::create_order
+    create_resp = OrdersHelper.create_order
     request = OrdersPatchRequest.new(create_resp.result.id)
     request.request_body(build_request_body)
 
-    resp = TestHarness::client.execute(request)
+    resp = TestHarness.client.execute(request)
     expect(resp.status_code).to eq(204)
-    resp = OrdersHelper::get_order create_resp.result.id
+    resp = OrdersHelper.get_order create_resp.result.id
     expect(resp.status_code).to eq(200)
     expect(resp.result).not_to be_nil
     expect(resp.result.intent).to eq('CAPTURE')
@@ -47,12 +47,12 @@ describe OrdersPatchRequest do
     expect(resp.result.links).not_to be_nil
     found_approve = false
 
-    for link in resp.result.links
-      if "approve" === link.rel
-        expect(link["href"]).not_to be_nil
-        expect(link["method"]).to eq("GET")
-        found_approve = true
-      end
+    resp.result.links.each do |link|
+      next unless 'approve' === link.rel
+
+      expect(link['href']).not_to be_nil
+      expect(link['method']).to eq('GET')
+      found_approve = true
     end
     expect(found_approve).to be_truthy
     expect(resp.result.status).to eq('CREATED')

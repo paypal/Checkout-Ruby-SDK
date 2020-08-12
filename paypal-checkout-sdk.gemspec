@@ -1,4 +1,6 @@
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'core/version'
 
@@ -7,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version     = PayPal::VERSION
   spec.summary     = "This repository contains PayPal's Ruby SDK for Checkout REST API"
   spec.description = "This repository contains PayPal's Ruby SDK for Checkout REST API"
-  spec.authors     = ["http://developer.paypal.com"]
+  spec.authors     = ['http://developer.paypal.com']
   spec.email       = 'dl-paypal-checkout-api@paypal.com'
   spec.homepage    = 'https://github.com/paypal/Checkout-Ruby-SDK'
   spec.license     = 'https://github.com/paypal/Checkout-Ruby-SDK/blob/master/LICENSE'
@@ -21,7 +23,13 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'paypalhttp', '~> 1.0.0'
 
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'dotenv'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-performance'
+  spec.add_development_dependency 'rubocop-thread_safety'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'pry-byebug'
 end

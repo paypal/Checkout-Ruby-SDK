@@ -1,0 +1,33 @@
+# Cop configuration for rubocop-performance can be found here
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performanceancestorsinclude
+Performance/AncestorsInclude:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performancebigdecimalwithnumericargument
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performanceredundantsortblock
+Performance/RedundantSortBlock:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performanceredundantstringchars
+Performance/RedundantStringChars:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performancereversefirst
+Performance/ReverseFirst:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performancesortreverse
+Performance/SortReverse:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performancesqueeze
+Performance/Squeeze:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop-performance/1.7/cops_performance.html#performancestringinclude
+Performance/StringInclude:
+  Enabled: true

@@ -1,0 +1,23 @@
+# cop configuration for Metrics should be found here
+#
+# Assignment Branch Complexity increasing slightly from the default of 15
+Metrics/AbcSize:
+  Max: 18
+
+# Ideally this would be 5 or 6
+Metrics/MethodLength:
+  Max: 14
+
+# No need to run this on rake tasks
+Metrics/BlockLength:
+  Exclude:
+    - lib/tasks/**/*
+    - test/**/*
+
+# Configuration parameters: CountComments.
+Metrics/ClassLength:
+  Max: 116
+
+# don't count kwargs in paramlist
+Metrics/ParameterLists:
+  CountKeywordArgs: false

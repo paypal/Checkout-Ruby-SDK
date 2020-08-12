@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module PayPal
   class AccessToken
+
     attr_accessor :access_token, :token_type, :expires_in, :date_created
 
     def initialize(options)
@@ -10,11 +13,12 @@ module PayPal
     end
 
     def isExpired
-      return Time.now > @date_created + @expires_in
+      Time.now > @date_created + @expires_in
     end
 
     def authorizationString
-      return "#{@token_type} #{@access_token}"
+      "#{@token_type} #{@access_token}"
     end
+
   end
 end

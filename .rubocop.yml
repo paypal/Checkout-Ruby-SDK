@@ -1,0 +1,23 @@
+require:
+  - rubocop-performance
+  - rubocop-thread_safety
+
+inherit_from:
+  - .rubocop/layout.yml
+  - .rubocop/lint.yml
+  - .rubocop/metrics.yml
+  - .rubocop/naming.yml
+  - .rubocop/performance.yml
+  - .rubocop/style.yml
+  - .rubocop/thread-safety.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - bin/*
+    - tmp/**/*
+    - vendor/**/*
