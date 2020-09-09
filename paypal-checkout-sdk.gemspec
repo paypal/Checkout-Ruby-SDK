@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ["http://developer.paypal.com"]
   spec.email       = 'dl-paypal-checkout-api@paypal.com'
   spec.homepage    = 'https://github.com/paypal/Checkout-Ruby-SDK'
-  spec.license     = 'https://github.com/paypal/Checkout-Ruby-SDK/blob/master/LICENSE'
+  spec.license     = 'Apache-2.0'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
